@@ -61,6 +61,7 @@ class User extends AdminAR implements IdentityInterface
 			[['email', 'username'], 'unique'],
 			[['email', 'username'], 'filter', 'filter' => 'trim'],
 			[['email', 'username', 'avatar'], 'string', 'max' => 255],
+			['username', 'match', 'pattern' => '/^[a-z]\w*$/i'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 			
